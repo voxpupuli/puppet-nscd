@@ -7,6 +7,8 @@ Does little more than install the nscd package
 and support the on/off of databases passwd,
 groups and hosts to cache or not.
 
+See class::config for details.
+
 Tested on RHEL and Fedora.
 
 The module assumes that hiera is available.
