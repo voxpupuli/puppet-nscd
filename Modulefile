@@ -7,5 +7,3 @@ summary 'Manages the /etc/nscd.conf file and service'
 description 'Manages the /etc/nscd.conf file and service'
 project_page 'https://github.com/CERN-Ops'
 
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'

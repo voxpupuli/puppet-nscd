@@ -9,4 +9,4 @@ groups and hosts to cache or not.
 
 Tested on RHEL and Fedora.
 
-
+The module assumes that hiera is available.
