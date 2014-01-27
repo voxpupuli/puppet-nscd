@@ -20,7 +20,8 @@
 #
 class nscd::config ($nscd_hosts_cache  = hiera('nscd_hosts_cache','yes'),
                     $nscd_passwd_cache = hiera('nscd_passwd_cache','no'),
-                    $nscd_group_cache  = hiera('nscd_group_cache','no')
+                    $nscd_group_cache  = hiera('nscd_group_cache','no'),
+                    $nscd_service_cache  = hiera('nscd_service_cache','yes')
                    ) {
 
 
@@ -32,6 +33,9 @@ class nscd::config ($nscd_hosts_cache  = hiera('nscd_hosts_cache','yes'),
      }
      if ! ( $nscd_group_cache in ['yes','no'] ) {
         fail("nscd_hosts_cache must be yes or no")
+     }
+     if ! ( $nscd_service_cache in ['yes','no'] ) {
+        fail("nscd_service_cache must be yes or no")
      }
 
 
