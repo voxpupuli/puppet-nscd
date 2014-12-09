@@ -20,7 +20,7 @@
 # Copyright 2011 CERN Steve Traylen
 #
 class nscd {
-   class{'nscd::install':}
-   class{'nscd::config':}
-   class{'nscd::service':}
+  class{'nscd::install':}
+  class{'nscd::config':}
+  class{'nscd::service':}
 }
