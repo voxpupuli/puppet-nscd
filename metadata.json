@@ -1,0 +1,31 @@
+{
+  "version": "0.1.0",
+  "author": "Steve Traylen",
+  "project_page": "https://github.com/cernops",
+  "types": [
+
+  ],
+  "summary": "Manages the /etc/nscd.conf file and service",
+  "name": "CERNOps-nscd",
+  "checksums": {
+    "manifests/service.pp": "f18fb16172fb595d714eb736d92a8423",
+    "Gemfile": "e07d680dcd49f233e785cdc806ba04fa",
+    "Modulefile": "84487a063b4c70ac5abae2595f7114dd",
+    "README.md": "c84de4baa797f32c5018fe68709b72ee",
+    "Rakefile": "08e0a323fee4ae61d670e3a9da42672d",
+    "manifests/install.pp": "6a9121c62d8cc9f29f6df8f5002d6333",
+    "manifests/init.pp": "1d671883ffd105b985b398971505d75b",
+    "CHANGELOG": "f5e8b09328c9cb0b086c78486e2b4438",
+    "templates/nscd.conf.erb": "b6b13961c7831e5c8a55da1a70da91e7",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "LICENSE": "19cbd64715b51267a47bf3750cc6a8a5",
+    "manifests/config.pp": "59d1cc67403a47e77d221956dead4655",
+    "tests/init.pp": "9d348e6a0bbb0f63d60aa5c6cc197aa0"
+  },
+  "license": "Apache License, Version 2.0",
+  "description": "Manages the /etc/nscd.conf file and service",
+  "source": "https://github.com/cernops/puppet-nscd",
+  "dependencies": [
+
+  ]
+}

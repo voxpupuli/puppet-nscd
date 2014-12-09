@@ -1,3 +1,10 @@
+2014-12-09
+    * 0.1.0 release
+    * Support to enable and configure paranoia mode.
+    * Support to configure service cache.
+    * Support to configure number of threads
+    * Fixes for puppet3.
+
 2012-05-21  Steve Traylen  <steve.traylen@cern.ch
     * 0.0.1 release
 
