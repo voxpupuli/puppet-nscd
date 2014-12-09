@@ -12,3 +12,5 @@ See class::config for details.
 Tested on RHEL and Fedora.
 
 The module assumes that hiera is available.
+
+[![Build Status](https://travis-ci.org/cernops/puppet-nscd.svg?branch=master)](https://travis-ci.org/cernops/puppet-nscd)
