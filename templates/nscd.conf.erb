@@ -40,8 +40,8 @@
 #	stat-user		somebody
 	debug-level		0
 #	reload-count		5
-	paranoia		no
-#	restart-interval	3600
+	paranoia		<%= @nscd_paranoia %>
+ 	restart-interval	<%= @nscd_restart_interval %>
 
 	enable-cache		passwd		<%= @nscd_passwd_cache %>
 	positive-time-to-live	passwd		600
