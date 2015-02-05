@@ -3,8 +3,8 @@
 class nscd::service {
 
   service{'nscd':
-    ensure     => running,
-    enable     => true,
+    ensure     => $nscd::service_ensure,
+    enable     => $nscd::service_enable,
     hasstatus  => true,
     hasrestart => true,
     require    => Class['nscd::config'],
