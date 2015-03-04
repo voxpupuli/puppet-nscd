@@ -1,11 +1,8 @@
 # == Class: nscd::install
 # Installs nscd packages.
 #
-class nscd::install (
-  $pkg_ensure = $nscd::pkg_ensure,
-) inherits nscd {
-
+class nscd::install {
   package{'nscd':
-    ensure => $pkg_ensure,
+    ensure => $::nscd::pkg_ensure,
   }
 }
