@@ -1,1 +1,2 @@
-*.sw*
+spec/fixtures
+Gemfile.lock
