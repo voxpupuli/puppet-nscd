@@ -60,7 +60,7 @@
 #
 # Steve Traylen <steve.traylen@cern.ch>
 # Arnold Bechtoldt <mail@arnoldbechtoldt.com>
-# Martin Pfeifer <martin.pfeifer@dm.de>
+# Martin Pfeifer <martin.pfeifer@gmail.com>
 #
 # === Copyright
 #
