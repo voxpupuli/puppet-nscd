@@ -8,7 +8,9 @@
   "description": "Manages the /etc/nscd.conf file and service",
   "source": "https://github.com/cernops/puppet-nscd",
   "issues": "https://github.com/cernops/puppet-nscd/issues",
-  "dependencies": [ ],
+  "dependencies": [ 
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=2.2.1" },
+  ],
   "operatingsystem_support": [
     { "operatingsystem": "RedHat",
       "operatingsystemrelease": [ "5.0", "6.0", "7.0" ]
