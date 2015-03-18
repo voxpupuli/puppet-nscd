@@ -1,3 +1,9 @@
+2015-03-18
+    * 0.2.0 release
+    * Support disable and removal nscd package.
+    * Enable parameters in the main nscd::init class.
+    * Add more rspec tests.
+
 2014-12-09
     * 0.1.0 release
     * Support to enable and configure paranoia mode.
