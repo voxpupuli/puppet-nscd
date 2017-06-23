@@ -10,7 +10,10 @@
   "issues": "https://github.com/voxpupuli/puppet-nscd/issues",
   "tags": ["nscd", "dns", "dnscache", "cache" ],
   "dependencies": [ 
-    { "name": "puppetlabs/stdlib", "version_requirement": ">=2.2.1 < 5" }
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.6.0 < 5.0.0"
+    }
   ],
   "requirements": [
     {

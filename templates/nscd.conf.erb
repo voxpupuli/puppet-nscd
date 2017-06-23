@@ -34,16 +34,16 @@
 
 
 #	logfile			/var/log/nscd.log
-	threads			<%= @nscd_threads %>
+	threads			<%= @threads %>
 #	max-threads		32
 	server-user		nscd
 #	stat-user		somebody
 	debug-level		0
 #	reload-count		5
-	paranoia		<%= @nscd_paranoia %>
- 	restart-interval	<%= @nscd_restart_interval %>
+	paranoia		<%= @paranoia ? 'yes' : 'no' %>
+ 	restart-interval	<%= @restart_interval %>
 
-	enable-cache		passwd		<%= @nscd_passwd_cache %>
+	enable-cache		passwd		<%= @passwd_cache ? 'yes' : 'no' %>
 	positive-time-to-live	passwd		600
 	negative-time-to-live	passwd		20
 	suggested-size		passwd		211
@@ -53,7 +53,7 @@
 	max-db-size		passwd		33554432
 	auto-propagate		passwd		yes
 
-	enable-cache		group		<%= @nscd_group_cache %>
+	enable-cache		group		<%= @group_cache ? 'yes' : 'no' %>
 	positive-time-to-live	group		3600
 	negative-time-to-live	group		60
 	suggested-size		group		211
@@ -63,7 +63,7 @@
 	max-db-size		group		33554432
 	auto-propagate		group		yes
 
-	enable-cache		hosts		<%= @nscd_hosts_cache %>
+	enable-cache		hosts		<%= @hosts_cache ? 'yes' : 'no' %>
 	positive-time-to-live	hosts		3600
 	negative-time-to-live	hosts		20
 	suggested-size		hosts		211
@@ -72,8 +72,8 @@
 	shared			hosts		yes
 	max-db-size		hosts		33554432
 
-<% unless @osfamily == 'RedHat' and @operatingsystemrelease.to_f < 6.0 -%>
-	enable-cache		services	<%= @nscd_service_cache %>
+<% unless @osfamily == 'RedHat' and @operatingsystemmajrelease == '5' -%>
+	enable-cache		services	<%= @services_cache ? 'yes' : 'no' %>
 	positive-time-to-live	services	28800
 	negative-time-to-live	services	20
 	suggested-size		services	211
