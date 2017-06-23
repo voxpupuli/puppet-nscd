@@ -89,10 +89,10 @@ class nscd (
     fail('nscd_hosts_cache must be yes or no')
   }
   if ! ( $nscd_passwd_cache in ['yes','no'] ) {
-    fail('nscd_hosts_cache must be yes or no')
+    fail('nscd_passwd_cache must be yes or no')
   }
   if ! ( $nscd_group_cache in ['yes','no'] ) {
-    fail('nscd_hosts_cache must be yes or no')
+    fail('nscd_group_cache must be yes or no')
   }
   if ! ( $nscd_service_cache in ['yes','no'] ) {
     fail('nscd_service_cache must be yes or no')
