@@ -1,13 +1,13 @@
 ---
 .travis.yml:
   extras:
-  - rvm: 2.4.0
+  - rvm: 2.4.1
     env: PUPPET_INSTALL_TYPE=agent CHECK=acceptance BEAKER_debug=true BEAKER_set=docker/centos-7
     services: docker
     sudo: required
     bundler_args: --without development
     dist: trusty
-  - rvm: 2.4.0
+  - rvm: 2.4.1
     env: PUPPET_INSTALL_TYPE=agent CHECK=acceptance BEAKER_debug=true BEAKER_set=docker/centos-6
     services: docker
     sudo: required

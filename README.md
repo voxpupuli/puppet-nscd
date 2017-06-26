@@ -30,7 +30,7 @@ https://voxpupuli.org/puppet-nscd/
 
 ## Authors
 
-* VoxPupuli <voxpupuli@groups.io>
+* Vox Pupuli <voxpupuli@groups.io>
 * Steve Traylen <steve.traylen@cern.ch>
 
 

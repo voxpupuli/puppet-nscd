@@ -16,16 +16,16 @@
 # @prarm paranoia  enable internal restart mode.
 # @param restart_interval nscd internal restart interval
 class nscd (
-  Enum['present','absent','latest'] $pkg_ensure  = 'present',
-  Boolean  $service_ensure   = true,
-  Boolean  $service_enable   = true,
-  Boolean  $hosts_cache      = true,
-  Boolean  $passwd_cache     = false,
-  Boolean  $group_cache      = false,
-  Boolean  $services_cache   = true,
-  Integer  $threads          = 4,
-  Boolean  $paranoia         = true,
-  Integer  $restart_interval = 3600,
+  Enum['present','absent','latest'] $pkg_ensure       = 'present',
+  Boolean                           $service_ensure   = true,
+  Boolean                           $service_enable   = true,
+  Boolean                           $hosts_cache      = true,
+  Boolean                           $passwd_cache     = false,
+  Boolean                           $group_cache      = false,
+  Boolean                           $services_cache   = true,
+  Integer                           $threads          = 4,
+  Boolean                           $paranoia         = true,
+  Integer                           $restart_interval = 3600,
 ) {
 
   contain ::nscd::install
