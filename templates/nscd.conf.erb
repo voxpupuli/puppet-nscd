@@ -72,7 +72,7 @@
 	shared			hosts		yes
 	max-db-size		hosts		33554432
 
-<% unless @osfamily == 'RedHat' and @operatingsystemmajrelease == '5' -%>
+<% unless @facts['os']['family'] == 'RedHat' and @facts['os']['release']['major'] == '5' -%>
 	enable-cache		services	<%= @services_cache ? 'yes' : 'no' %>
 	positive-time-to-live	services	28800
 	negative-time-to-live	services	20
