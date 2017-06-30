@@ -22,6 +22,7 @@ include ::nscd
 class{'nscd':
   nscd_group_cache => 'yes',
 }
+```
 
 ## Usage
 
