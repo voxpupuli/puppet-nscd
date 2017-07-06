@@ -12,6 +12,8 @@
 
 Configures `/etc/nscd.conf` and controls nscd service.
 
+This module obsoletes [CERNPps-nscd-0.2.0](https://forge.puppet.com/CERNOps/ncsd)
+
 ## Examples
 
 ```puppet
