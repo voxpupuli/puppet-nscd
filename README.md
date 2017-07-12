@@ -20,7 +20,7 @@ include ::nscd
 
 ```puppet
 class{'nscd':
-  nscd_group_cache => 'yes',
+  group_cache => true,
 }
 ```
 
