@@ -8,8 +8,13 @@
   "description": "Manages the /etc/nscd.conf file and service",
   "source": "https://github.com/voxpupuli/puppet-nscd",
   "issues": "https://github.com/voxpupuli/puppet-nscd/issues",
-  "tags": ["nscd", "dns", "dnscache", "cache" ],
-  "dependencies": [ 
+  "tags": [
+    "nscd",
+    "dns",
+    "dnscache",
+    "cache"
+  ],
+  "dependencies": [
     {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">=  4.13.1 < 5.0.0"
@@ -22,20 +27,36 @@
     }
   ],
   "operatingsystem_support": [
-    { "operatingsystem": "RedHat",
-      "operatingsystemrelease": ["5", "6", "7" ]
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
     },
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
     },
     {
       "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
     },
     {
       "operatingsystem": "Scientific",
-      "operatingsystemrelease": [ "5", "6", "7" ]
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
     }
   ]
 }
