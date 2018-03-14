@@ -1,18 +1,6 @@
 ---
 .travis.yml:
   secure: "lBcc0WYIK5ZETsNeS2jlc71o1RXiM96tvLG7TVv4WB/fTrntcQQ8bKHTAmtY2rHhi9w+KSyPqTJFqKcI/xTxJ6iIqTINoRLnEznfUclAoyYdxrkjT74UyZTf+dw1jiqLhqd6DIbQFHZ5WXob/ta8bnw5qwS9uw/tOzPJKRFXfcw="
-  extras:
-  - rvm: 2.4.1
-    env: PUPPET_INSTALL_TYPE=agent CHECK=acceptance BEAKER_debug=true BEAKER_set=docker/centos-7
-    services: docker
-    sudo: required
-    bundler_args: --without development
-    dist: trusty
-  - rvm: 2.4.1
-    env: PUPPET_INSTALL_TYPE=agent CHECK=acceptance BEAKER_debug=true BEAKER_set=docker/centos-6
-    services: docker
-    sudo: required
-    bundler_args: --without development
-    dist: trusty
-
-
+  docker_sets:
+    - set: docker/centos-6
+    - set: docker/centos-7
