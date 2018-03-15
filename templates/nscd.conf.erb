@@ -44,8 +44,8 @@
  	restart-interval	<%= @restart_interval %>
 
 	enable-cache		passwd		<%= @passwd_cache ? 'yes' : 'no' %>
-	positive-time-to-live	passwd		600
-	negative-time-to-live	passwd		20
+	positive-time-to-live	passwd		<%= @passwd_positive_ttl %>
+	negative-time-to-live	passwd		<%= @passwd_negative_ttl %>
 	suggested-size		passwd		211
 	check-files		passwd		yes
 	persistent		passwd		yes
@@ -54,8 +54,8 @@
 	auto-propagate		passwd		yes
 
 	enable-cache		group		<%= @group_cache ? 'yes' : 'no' %>
-	positive-time-to-live	group		3600
-	negative-time-to-live	group		60
+	positive-time-to-live	group		<%= @group_positive_ttl %>
+	negative-time-to-live	group		<%= @group_negative_ttl %>
 	suggested-size		group		211
 	check-files		group		yes
 	persistent		group		yes
@@ -64,8 +64,8 @@
 	auto-propagate		group		yes
 
 	enable-cache		hosts		<%= @hosts_cache ? 'yes' : 'no' %>
-	positive-time-to-live	hosts		3600
-	negative-time-to-live	hosts		20
+	positive-time-to-live	hosts		<%= @hosts_positive_ttl %>
+	negative-time-to-live	hosts		<%= @hosts_negative_ttl %>
 	suggested-size		hosts		211
 	check-files		hosts		yes
 	persistent		hosts		yes
@@ -74,8 +74,8 @@
 
 <% unless @facts['os']['family'] == 'RedHat' and @facts['os']['release']['major'] == '5' -%>
 	enable-cache		services	<%= @services_cache ? 'yes' : 'no' %>
-	positive-time-to-live	services	28800
-	negative-time-to-live	services	20
+	positive-time-to-live	services	<%= @services_positive_ttl %>
+	negative-time-to-live	services	<%= @services_negative_ttl %>
 	suggested-size		services	211
 	check-files		services	yes
 	persistent		services	yes

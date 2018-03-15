@@ -12,6 +12,20 @@ describe 'nscd' do
         it { is_expected.to contain_class('nscd::service') }
         it { is_expected.to contain_package('nscd').with_ensure('present') }
         it { is_expected.to contain_service('nscd').with_ensure(true) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+passwd\s+600$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+passwd\s+20$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+group\s+3600$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+group\s+60$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+hosts\s+3600$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+hosts\s+20$}) }
+        case facts[:operatingsystemmajrelease]
+        when '5'
+          it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^\s*positive-time-to-live\s+services.*$}) }
+          it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^\s*negative-time-to-live\s+services.*$}) }
+        else
+          it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+services\s+28800$}) }
+          it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+services\s+20$}) }
+        end
       end
 
       context 'with pkg_ensure => "absent"' do
@@ -31,10 +45,34 @@ describe 'nscd' do
 
         it { is_expected.to contain_service('nscd').with_enable(false) }
       end
-      context 'with nscd_restart_interval set' do
-        let(:params) { { restart_interval: 1000 } }
+      context 'with all integer values set' do
+        let(:params) do
+          { restart_interval: 1001,
+            passwd_negative_ttl: 1002,
+            passwd_positive_ttl: 1003,
+            group_negative_ttl: 1004,
+            group_positive_ttl: 1005,
+            hosts_negative_ttl: 1006,
+            hosts_positive_ttl: 1007,
+            services_negative_ttl: 1008,
+            services_positive_ttl: 1009 }
+        end
 
-        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*restart-interval\s+1000$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*restart-interval\s+1001$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+passwd\s+1002$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+passwd\s+1003$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+group\s+1004$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+group\s+1005$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+hosts\s+1006$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+hosts\s+1007$}) }
+        case facts[:operatingsystemmajrelease]
+        when '5'
+          it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^\s*negative-time-to-live\s+services.*$}) }
+          it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^\s*positive-time-to-live\s+services.*$}) }
+        else
+          it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+services\s+1008$}) }
+          it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+services\s+1009$}) }
+        end
       end
       context 'with passwd_cache set false' do
         let(:params) { { passwd_cache: false } }
