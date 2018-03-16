@@ -18,6 +18,8 @@ describe 'nscd' do
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+group\s+60$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+hosts\s+3600$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+hosts\s+20$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*threads\s+4$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*max-threads\s+32$}) }
         case facts[:operatingsystemmajrelease]
         when '5'
           it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^\s*positive-time-to-live\s+services.*$}) }
@@ -47,7 +49,10 @@ describe 'nscd' do
       end
       context 'with all integer values set' do
         let(:params) do
-          { restart_interval: 1001,
+          {
+            threads: 999,
+            max_threads: 1000,
+            restart_interval: 1001,
             passwd_negative_ttl: 1002,
             passwd_positive_ttl: 1003,
             group_negative_ttl: 1004,
@@ -55,9 +60,12 @@ describe 'nscd' do
             hosts_negative_ttl: 1006,
             hosts_positive_ttl: 1007,
             services_negative_ttl: 1008,
-            services_positive_ttl: 1009 }
+            services_positive_ttl: 1009
+          }
         end
 
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*threads\s+999$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*max-threads\s+1000$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*restart-interval\s+1001$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*negative-time-to-live\s+passwd\s+1002$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^\s*positive-time-to-live\s+passwd\s+1003$}) }
