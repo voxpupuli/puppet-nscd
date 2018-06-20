@@ -12,7 +12,8 @@
 # @param passwd_cache should nscd cache passwd entries
 # @param group_cache should nscd cache group entries
 # @param services_cache should nscd cache service entries.
-# @param threads number of threads
+# @param threads number of threads.
+# @param max_threads maximum number of threads.
 # @prarm paranoia  enable internal restart mode.
 # @param restart_interval nscd internal restart interval
 # @param passwd_positive_ttl positive time to live for passwords database.
@@ -32,6 +33,7 @@ class nscd (
   Boolean                           $group_cache           = false,
   Boolean                           $services_cache        = true,
   Integer                           $threads               = 4,
+  Integer                           $max_threads           = 32,
   Boolean                           $paranoia              = true,
   Integer                           $restart_interval      = 3600,
   Integer                           $passwd_negative_ttl   = 20,

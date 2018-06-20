@@ -35,7 +35,7 @@
 
 #	logfile			/var/log/nscd.log
 	threads			<%= @threads %>
-#	max-threads		32
+        max-threads		<%= @max_threads %>
 	server-user		nscd
 #	stat-user		somebody
 	debug-level		0
