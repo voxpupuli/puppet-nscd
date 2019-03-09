@@ -46,9 +46,9 @@ class nscd (
   Integer                           $services_positive_ttl = 28800,
 ) {
 
-  contain ::nscd::install
-  contain ::nscd::config
-  contain ::nscd::service
+  contain nscd::install
+  contain nscd::config
+  contain nscd::service
 
   Class['nscd::install']
   -> Class['nscd::config']
