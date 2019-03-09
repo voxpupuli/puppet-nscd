@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v2.0.0) (2019-03-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v1.1.0...v2.0.0)
+
+**Breaking changes:**
+
+- modulesync 2.6.0 & drop Puppet 4 [\#48](https://github.com/voxpupuli/puppet-nscd/pull/48) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- modulesync 2.2.0 and allow puppet 6.x [\#46](https://github.com/voxpupuli/puppet-nscd/pull/46) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.1.0](https://github.com/voxpupuli/puppet-nscd/tree/v1.1.0) (2018-09-07)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v1.0.0...v1.1.0)
@@ -62,7 +74,7 @@ These should not affect the functionality of the module.
 **Merged pull requests:**
 
 - Rewrite module [\#6](https://github.com/voxpupuli/puppet-nscd/pull/6) ([martinpfeifer](https://github.com/martinpfeifer))
-- make it possible to remove/ disable nscd using class params [\#5](https://github.com/voxpupuli/puppet-nscd/pull/5) ([arnoldbechtoldt](https://github.com/arnoldbechtoldt))
+- make it possible to remove/ disable nscd using class params [\#5](https://github.com/voxpupuli/puppet-nscd/pull/5) ([arnisoph](https://github.com/arnisoph))
 
 ## [puppet-nscd-0.1.0](https://github.com/voxpupuli/puppet-nscd/tree/puppet-nscd-0.1.0) (2014-12-09)
 
