@@ -1,106 +1,69 @@
 # Configuration file installed from nscd puppet
-# module.
 
-# /etc/nscd.conf
-#
-#
-# An example Name Service Cache config file.  This file is needed by nscd.
-#
 # Legal entries are:
 #
-#	logfile			<file>
-#	debug-level		<level>
-#	threads			<initial #threads to use>
-#	max-threads		<maximum #threads to use>
-#	server-user             <user to run server as instead of root>
-#		server-user is ignored if nscd is started with -S parameters
+#       logfile                 <file>
+#       debug-level             <level>
+#       threads                 <initial #threads to use>
+#       max-threads             <maximum #threads to use>
+#       server-user             <user to run server as instead of root>
+#               server-user is ignored if nscd is started with -S parameters
 #       stat-user               <user who is allowed to request statistics>
-#	reload-count		unlimited|<number>
-#	paranoia		<yes|no>
-#	restart-interval	<time in seconds>
+#       reload-count            unlimited|<number>
+#       paranoia                <yes|no>
+#       restart-interval        <time in seconds>
 #
-#       enable-cache		<service> <yes|no>
-#	positive-time-to-live	<service> <time in seconds>
-#	negative-time-to-live   <service> <time in seconds>
-#       suggested-size		<service> <prime number>
-#	check-files		<service> <yes|no>
-#	persistent		<service> <yes|no>
-#	shared			<service> <yes|no>
-#	max-db-size		<service> <number bytes>
-#	auto-propagate		<service> <yes|no>
+#       enable-cache            <service> <yes|no>
+#       positive-time-to-live   <service> <time in seconds>
+#       negative-time-to-live   <service> <time in seconds>
+#       suggested-size          <service> <prime number>
+#       check-files             <service> <yes|no>
+#       persistent              <service> <yes|no>
+#       shared                  <service> <yes|no>
+#       max-db-size             <service> <number bytes>
+#       auto-propagate          <service> <yes|no>
 #
 # Currently supported cache names (services): passwd, group, hosts, services
-#
 
+logfile   <%= $nscd::logfile %>
+threads   <%= $nscd::threads %>
+max-threads   <%= $nscd::max_threads %>
+server-user   <%= $nscd::user %>
+<%- if $nscd::stat_user { -%>
+stat-user  <%= $nscd::stat_user %>
+<%- } -%>
+debug-level   <%= $nscd::debug_level %>
+reload-count   <%= $nscd::reload_count %>
+restart-interval   <%= $::nscd::restart_interval %>
+<%- if $nscd::paranoia { -%>
+paranoia   yes
+<%- } else { -%>
+paranoia   no
+<%- } -%>
 
-#	logfile			/var/log/nscd.log
-	threads			<%= $nscd::threads %>
-        max-threads		<%= $nscd::max_threads %>
-	server-user		nscd
-#	stat-user		somebody
-	debug-level		0
-#	reload-count		5
-<% if $nscd::paranoia { -%>
-	paranoia		yes
-<% } else { -%>
-	paranoia		no
-<% } -%>
- 	restart-interval	<%= $::nscd::restart_interval %>
-
-<% if $nscd::passwd_cache { -%>
-	enable-cache		passwd		yes
-<% } else { -%>
-	enable-cache		passwd		no
-<% } -%>
-	positive-time-to-live	passwd		<%= $nscd::passwd_positive_ttl %>
-	negative-time-to-live	passwd		<%= $nscd::passwd_negative_ttl %>
-	suggested-size		passwd		211
-	check-files		passwd		yes
-	persistent		passwd		yes
-	shared			passwd		yes
-	max-db-size		passwd		33554432
-	auto-propagate		passwd		yes
-
-<% if $nscd::group_cache { -%>
-	enable-cache		group		yes
-<% } else { -%>
-	enable-cache		group		no
-<% } -%>
-	positive-time-to-live	group		<%= $nscd::group_positive_ttl %>
-	negative-time-to-live	group		<%= $nscd::group_negative_ttl %>
-	suggested-size		group		211
-	check-files		group		yes
-	persistent		group		yes
-	shared			group		yes
-	max-db-size		group		33554432
-	auto-propagate		group		yes
-
-<% if $nscd::hosts_cache { -%>
-	enable-cache		hosts		yes
-<% } else { -%>
-	enable-cache		hosts		no
-<% } -%>
-	positive-time-to-live	hosts		<%= $nscd::hosts_positive_ttl %>
-	negative-time-to-live	hosts		<%= $nscd::hosts_negative_ttl %>
-	suggested-size		hosts		211
-	check-files		hosts		yes
-	persistent		hosts		yes
-	shared			hosts		yes
-	max-db-size		hosts		33554432
-
-<% unless $facts['os']['family'] == 'RedHat' and $facts['os']['release']['major'] == '5' { -%>
-<% if $nscd::services_cache { -%>
-	enable-cache		services	yes
-<% } else { -%>
-	enable-cache		services	no
-<% } -%>
-	positive-time-to-live	services	<%= $::nscd::services_positive_ttl %>
-	negative-time-to-live	services	<%= $::nscd::services_negative_ttl %>
-	suggested-size		services	211
-	check-files		services	yes
-	persistent		services	yes
-	shared			services	yes
-	max-db-size		services	33554432
-<% } -%>
-
+<%-
+  $nscd::dbconfig.each | $_db, $_data  | {
+-%>
+# nscd configuration for database <%= $_db %>
+<%-
+    if $_data['enable-cache'] {
+      $_data.each | $_key, $_value | {
+         if $_value =~ Boolean and $_value == false {
+           $_configvalue = 'no'
+         } elsif $_value =~ Boolean and $_value == true {
+           $_configvalue = 'yes'
+         } elsif $_value =~ Integer  {
+           $_configvalue = $_value
+         }
+-%>
+<%= $_key %>   <%= $_db %>   <%= $_configvalue %>
+<%-
+      }
+    } else {
+-%>
+enable-cache   <%= $_db %>   no
+<%-
+  }
+}
+-%>
 
