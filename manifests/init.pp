@@ -37,7 +37,7 @@ class nscd (
   Boolean                           $service_ensure   = true,
   Boolean                           $service_enable   = true,
   String                            $user             = 'root',
-  Optional[String]                  $stat_user        = undef,
+  Optional[String[1]]                  $stat_user     = undef,
   Integer                           $threads          = 5,
   Integer                           $max_threads      = 32,
   Boolean                           $paranoia         = false,
