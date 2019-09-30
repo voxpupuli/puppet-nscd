@@ -44,8 +44,10 @@ class nscd (
   Optional[Integer]                 $restart_interval = undef,
   Integer                           $debug_level      = 0,
   Integer                           $reload_count     = 5,
-  Stdlib::UnixPath                  $logfile          = '/var/log/nscd.log',
+  Optional[Stdlib::UnixPath]        $logfile          = undef,
 ) {
+
+
 
   contain nscd::install
   contain nscd::config

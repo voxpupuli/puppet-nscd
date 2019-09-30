@@ -67,15 +67,15 @@ describe 'nscd' do
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^auto-propagate\s+group\s+yes$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^auto-propagate\s+hosts.*$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^auto-propagate\s+services.*$}) }
+        it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^restart-interval.*$}) }
 
-        case facts[:os][:family]
+        case facts[:os]['family']
         when 'RedHat'
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^logfile\s+/var/log/nscd.log$}) }
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^server-user\s+nscd$}) }
-          it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^restart-interval.*$}) }
-        when 'Debian'
+
+        else
           it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^logfile.*$}) }
-          it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^restart-interval\s+3600$}) }
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^server-user\s+root$}) }
         end
       end

@@ -25,7 +25,9 @@
 #
 # Currently supported cache names (services): passwd, group, hosts, services
 
+<%- if $nscd::logfile { -%>
 logfile   <%= $nscd::logfile %>
+<%- } -%>
 threads   <%= $nscd::threads %>
 max-threads   <%= $nscd::max_threads %>
 server-user   <%= $nscd::user %>
@@ -34,7 +36,9 @@ stat-user  <%= $nscd::stat_user %>
 <%- } -%>
 debug-level   <%= $nscd::debug_level %>
 reload-count   <%= $nscd::reload_count %>
+<%- if $nscd::restart_interval { -%>
 restart-interval   <%= $::nscd::restart_interval %>
+<%- } -%>
 <%- if $nscd::paranoia { -%>
 paranoia   yes
 <%- } else { -%>
