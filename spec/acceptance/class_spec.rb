@@ -114,4 +114,24 @@ describe 'nscd class' do
       it { is_expected.to be_file }
     end
   end
+  context 'package absent' do
+    # Using puppet_apply as a helper
+    it 'works idempotently with no errors' do
+      pp = <<-EOS
+      class { 'nscd':
+        pkg_ensure => 'absent',
+      }
+      EOS
+
+      # Run it twice and test for idempotency
+      apply_manifest(pp, catch_failures: true)
+      apply_manifest(pp, catch_changes: true)
+    end
+
+    describe package('nscd') do
+      it { is_expected.not_to be_installed }
+    end
+    # state of /etc/nscd.conf and service is
+    # abandoned if no package present.
+  end
 end

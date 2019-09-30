@@ -1,9 +1,13 @@
 class nscd::service (
   $service_ensure = $nscd::service_ensure,
   $service_enable = $nscd::service_enable,
+  $pkg_ensure     = $nscd::pkg_ensure,
 ) {
-  service{'nscd':
-    ensure => $service_ensure,
-    enable => $service_enable,
+
+  if $pkg_ensure != 'absent' {
+    service{'nscd':
+      ensure => $service_ensure,
+      enable => $service_enable,
+    }
   }
 }

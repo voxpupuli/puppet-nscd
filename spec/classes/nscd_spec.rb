@@ -114,6 +114,8 @@ describe 'nscd' do
         let(:params) { { pkg_ensure: 'absent' } }
 
         it { is_expected.to contain_package('nscd').with_ensure('absent') }
+        it { is_expected.not_to contain_service('nscd') }
+        it { is_expected.not_to contain_file('/etc/nscd.conf') }
       end
 
       context 'with service_ensure => false' do
