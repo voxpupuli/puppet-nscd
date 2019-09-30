@@ -1,0 +1,3 @@
+---
+nscd::user: nscd
+nscd::logfile: /var/log/nscd.log
