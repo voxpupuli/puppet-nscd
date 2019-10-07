@@ -4,7 +4,55 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v2.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v2.0.0) (2019-03-09)
+## [v3.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v3.0.0) (2019-10-07)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v2.0.0...v3.0.0)
+
+Version 3 is a new major version of [puppet/nscd](https://forge.puppet.com/puppet/nscd).  For most use cases, it is backwards incompatible and users will need to modify their declarations of the `nscd` class.
+
+The previous parameters such as
+
+* passwd_positive_ttl positive time to live for passwords database.
+* passwd_negative_ttl negative time to live for passwords database.
+* enable_passwd enable password cache.
+* ....
+
+are now all removed and instead all database parameters are specified with the
+dbconfig parameter. e.g.
+
+```puppet
+class{'nscd':
+  dbconfig => {
+    'passwd' => {
+      'enable-cache' => true,
+      'positive-time-to-live' => 500,
+      'negative-time-to-live' => 500,
+     },
+    'group' => {
+      'enable-cache' => true,
+      'positive-time-to-live' => 500,
+      'negative-time-to-live' => 500,
+     },
+  },
+}
+```
+
+The advantage of this breaking change that profits from newer puppet features is the module is much easier to maintain especially with respect to multiple OSes
+
+**Breaking changes:**
+
+- New dbconfig parameter replaces all per db options. [\#53](https://github.com/voxpupuli/puppet-nscd/pull/53) ([traylenator](https://github.com/traylenator))
+
+**Implemented enhancements:**
+
+- The module should allow all global and per-service properties to be managed [\#40](https://github.com/voxpupuli/puppet-nscd/issues/40)
+- Convert template to epp [\#51](https://github.com/voxpupuli/puppet-nscd/pull/51) ([traylenator](https://github.com/traylenator))
+
+**Closed issues:**
+
+- Don't use 'inherit' in sub-classes [\#15](https://github.com/voxpupuli/puppet-nscd/issues/15)
+
+## [v2.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v2.0.0) (2019-05-02)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v1.1.0...v2.0.0)
 
