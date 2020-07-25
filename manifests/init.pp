@@ -46,9 +46,6 @@ class nscd (
   Integer                           $reload_count     = 5,
   Optional[Stdlib::UnixPath]        $logfile          = undef,
 ) {
-
-
-
   contain nscd::install
   contain nscd::config
   contain nscd::service

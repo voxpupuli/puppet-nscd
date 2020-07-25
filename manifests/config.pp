@@ -2,10 +2,9 @@
 # Configures nscd.
 #
 class nscd::config {
-
   if $nscd::pkg_ensure != 'absent' {
-    file{'/etc/nscd.conf':
-      ensure  => present,
+    file { '/etc/nscd.conf':
+      ensure  => file,
       content => epp('nscd/nscd.conf.epp'),
       owner   => root,
       group   => root,
@@ -13,4 +12,3 @@ class nscd::config {
     }
   }
 }
-
