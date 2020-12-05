@@ -20,6 +20,7 @@
 # @param pkg_ensure state of nscd package.
 # @param service_ensure state of nscd service ensure
 # @param service_enable state of nscd service enable
+# $param service_restart command to reload nscd service
 # @param threads number of threads.
 # @param max_threads maximum number of threads.
 # @prarm paranoia  enable internal restart mode.
@@ -32,6 +33,7 @@
 # @dbconfig configuration for each of the passwd, group, hosts and service database.
 
 class nscd (
+  String[1]                         $service_restart,
   Nscd::Database                    $dbconfig,
   Enum['present','absent','latest'] $pkg_ensure       = 'present',
   Boolean                           $service_ensure   = true,

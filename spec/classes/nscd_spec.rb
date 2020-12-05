@@ -12,6 +12,7 @@ describe 'nscd' do
         it { is_expected.to contain_class('nscd::service') }
         it { is_expected.to contain_package('nscd').with_ensure('present') }
         it { is_expected.to contain_service('nscd').with_ensure(true) }
+        it { is_expected.to contain_service('nscd').with_hasrestart(true) }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^threads\s+5$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^max-threads\s+32$}) }
@@ -73,10 +74,16 @@ describe 'nscd' do
         when 'RedHat'
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^logfile\s+/var/log/nscd.log$}) }
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^server-user\s+nscd$}) }
-
+          it { is_expected.to contain_service('nscd').with_restart('/usr/bin/systemctl reload nscd') }
         else
           it { is_expected.to contain_file('/etc/nscd.conf').without_content(%r{^logfile.*$}) }
           it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^server-user\s+root$}) }
+          case facts[:os]['release']['full']
+          when '16.04', '8'
+            it { is_expected.to contain_service('nscd').with_restart('/usr/sbin/service nscd reload') }
+          else
+            it { is_expected.to contain_service('nscd').with_restart('/bin/systemctl reload nscd') }
+          end
         end
       end
 

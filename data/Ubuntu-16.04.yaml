@@ -1,0 +1,2 @@
+---
+nscd::service_restart: /usr/sbin/service nscd reload

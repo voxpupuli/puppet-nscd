@@ -1,2 +1,3 @@
 ---
 nscd::user: root
+nscd::service_restart: /bin/systemctl reload nscd
