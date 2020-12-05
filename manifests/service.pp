@@ -1,3 +1,6 @@
+# @summary controls nscd service
+# @api private
+#
 class nscd::service (
   $service_ensure = $nscd::service_ensure,
   $service_enable = $nscd::service_enable,
