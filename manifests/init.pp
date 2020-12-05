@@ -33,11 +33,11 @@
 # @dbconfig configuration for each of the passwd, group, hosts and service database.
 
 class nscd (
-  String[1]                         $service_restart,
   Nscd::Database                    $dbconfig,
   Enum['present','absent','latest'] $pkg_ensure       = 'present',
   Boolean                           $service_ensure   = true,
   Boolean                           $service_enable   = true,
+  String[1]                         $service_restart  = '/bin/systemctl reload nscd',
   String[1]                         $user             = 'root',
   Optional[String[1]]               $stat_user     = undef,
   Integer                           $threads          = 5,
