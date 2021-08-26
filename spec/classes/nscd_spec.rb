@@ -10,7 +10,7 @@ describe 'nscd' do
         it { is_expected.to contain_class('nscd::install') }
         it { is_expected.to contain_class('nscd::config') }
         it { is_expected.to contain_class('nscd::service') }
-        it { is_expected.to contain_package('nscd').with_ensure('present') }
+        it { is_expected.to contain_package('nscd').with_ensure('installed') }
         it { is_expected.to contain_service('nscd').with_ensure(true) }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^threads\s+5$}) }
