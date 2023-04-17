@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'nscd' do
   on_supported_os.each do |os, facts|
@@ -129,13 +131,14 @@ describe 'nscd' do
 
         it { is_expected.to contain_service('nscd').with_enable(false) }
       end
+
       context 'with all integer values set' do
         let(:params) do
           {
             threads: 999,
             max_threads: 1000,
             restart_interval: 1001,
-            dbconfig:  {
+            dbconfig: {
               passwd: { 'enable-cache' => true,
                         'negative-time-to-live' => 1002,
                         'positive-time-to-live' => 1003 },
@@ -165,41 +168,49 @@ describe 'nscd' do
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^negative-time-to-live\s+services\s+1008$}) }
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^positive-time-to-live\s+services\s+1009$}) }
       end
+
       context 'with passwd cache set false' do
         let(:params) { { dbconfig: { passwd: { 'enable-cache' => false } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+passwd\s+no$}) }
       end
+
       context 'with passwd cache set true' do
         let(:params) { { dbconfig: { passwd: { 'enable-cache' => true } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+passwd\s+yes$}) }
       end
+
       context 'with group cache set true' do
         let(:params) { { dbconfig: { group: { 'enable-cache' => true } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+group\s+yes$}) }
       end
+
       context 'with group cache set false' do
         let(:params) { { dbconfig: { group: { 'enable-cache' => false } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+group\s+no$}) }
       end
+
       context 'with hosts cache set false' do
         let(:params) { { dbconfig: { hosts: { 'enable-cache' => false } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+hosts\s+no$}) }
       end
+
       context 'with hosts cache set true' do
         let(:params) { { dbconfig: { hosts: { 'enable-cache' => true } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+hosts\s+yes$}) }
       end
+
       context 'with services cache set false' do
         let(:params) { { dbconfig: { services: { 'enable-cache' => false } } } }
 
         it { is_expected.to contain_file('/etc/nscd.conf').with_content(%r{^enable-cache\s+services\s+no$}) }
       end
+
       context 'with services cache set true' do
         let(:params) { { dbconfig: { services: { 'enable-cache' => true } } } }
 
