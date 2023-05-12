@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'nscd class' do
@@ -16,13 +18,16 @@ describe 'nscd class' do
     describe package('nscd') do
       it { is_expected.to be_installed }
     end
+
     describe service('nscd') do
       it { is_expected.to be_running }
     end
+
     describe file('/etc/nscd.conf') do
       it { is_expected.to be_file }
     end
   end
+
   context 'all parameters set' do
     # Using puppet_apply as a helper
     it 'works idempotently with no errors' do
@@ -107,13 +112,16 @@ describe 'nscd class' do
     describe package('nscd') do
       it { is_expected.to be_installed }
     end
+
     describe service('nscd') do
       it { is_expected.to be_running }
     end
+
     describe file('/etc/nscd.conf') do
       it { is_expected.to be_file }
     end
   end
+
   context 'package absent' do
     # Using puppet_apply as a helper
     it 'works idempotently with no errors' do
