@@ -4,7 +4,40 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v3.0.0) (2019-10-07)
+## [v4.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v4.0.0) (2023-10-26)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v3.0.0...v4.0.0)
+
+**Breaking changes:**
+
+- Drop Debian 8, Add Debian 11/12 support [\#84](https://github.com/voxpupuli/puppet-nscd/pull/84) ([bastelfreak](https://github.com/bastelfreak))
+- Drop EoL Ubuntu 16.04 support [\#81](https://github.com/voxpupuli/puppet-nscd/pull/81) ([bastelfreak](https://github.com/bastelfreak))
+- puppetlabs/stdlib: Require 9.x [\#79](https://github.com/voxpupuli/puppet-nscd/pull/79) ([bastelfreak](https://github.com/bastelfreak))
+- Drop Puppet 6 support [\#73](https://github.com/voxpupuli/puppet-nscd/pull/73) ([bastelfreak](https://github.com/bastelfreak))
+
+**Implemented enhancements:**
+
+- Add Ubuntu 20.04/22.04 support [\#83](https://github.com/voxpupuli/puppet-nscd/pull/83) ([bastelfreak](https://github.com/bastelfreak))
+- Add EL9 support [\#80](https://github.com/voxpupuli/puppet-nscd/pull/80) ([bastelfreak](https://github.com/bastelfreak))
+- Add AlmaLinux/Rocky support [\#78](https://github.com/voxpupuli/puppet-nscd/pull/78) ([bastelfreak](https://github.com/bastelfreak))
+- Add Puppet 8 support [\#76](https://github.com/voxpupuli/puppet-nscd/pull/76) ([bastelfreak](https://github.com/bastelfreak))
+- puppetlabs/stdlib: Allow 9.x [\#75](https://github.com/voxpupuli/puppet-nscd/pull/75) ([bastelfreak](https://github.com/bastelfreak))
+- Allow puppetlabs/stdlib 6.x [\#60](https://github.com/voxpupuli/puppet-nscd/pull/60) ([dhoppe](https://github.com/dhoppe))
+
+**Closed issues:**
+
+- Link to documentation in README is a 404 [\#38](https://github.com/voxpupuli/puppet-nscd/issues/38)
+
+**Merged pull requests:**
+
+- README.md: Update badges [\#82](https://github.com/voxpupuli/puppet-nscd/pull/82) ([bastelfreak](https://github.com/bastelfreak))
+- Allow stdlib 8.0.0 [\#69](https://github.com/voxpupuli/puppet-nscd/pull/69) ([smortex](https://github.com/smortex))
+- Clean up and generate strings docs [\#68](https://github.com/voxpupuli/puppet-nscd/pull/68) ([traylenator](https://github.com/traylenator))
+- modulesync 3.0.0 & puppet-lint updates [\#63](https://github.com/voxpupuli/puppet-nscd/pull/63) ([bastelfreak](https://github.com/bastelfreak))
+- Use voxpupuli-acceptance [\#62](https://github.com/voxpupuli/puppet-nscd/pull/62) ([ekohl](https://github.com/ekohl))
+- Clean up acceptance spec helper [\#57](https://github.com/voxpupuli/puppet-nscd/pull/57) ([ekohl](https://github.com/ekohl))
+
+## [v3.0.0](https://github.com/voxpupuli/puppet-nscd/tree/v3.0.0) (2019-10-08)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-nscd/compare/v2.0.0...v3.0.0)
 
