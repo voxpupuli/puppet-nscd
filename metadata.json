@@ -1,6 +1,6 @@
 {
   "name": "puppet-nscd",
-  "version": "4.0.0",
+  "version": "4.0.1-rc0",
   "author": "Vox Pupuli",
   "project_page": "https://github.com/voxpupuli/puppet-nscd",
   "summary": "Manages the /etc/nscd.conf file and service",
