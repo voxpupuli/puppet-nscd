@@ -1,3 +1,5 @@
+# @summary all possible settings an nscd database can have
+#
 type Nscd::Database::Settings = Struct[
   {
     'enable-cache'                    => Boolean,

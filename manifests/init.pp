@@ -22,15 +22,15 @@
 # @param service_enable state of nscd service enable
 # @param threads number of threads.
 # @param max_threads maximum number of threads.
-# @prarm paranoia  enable internal restart mode.
+# @param paranoia  enable internal restart mode.
 # @param restart_interval nscd internal restart interval
 # @param user specify which user should run nscd
 # @param stat_user which users can query statistics
 # @param debug_level debug level
 # @param reload_count any many reload attempts to make
 # @param logfile specify a debug log file location.
-# @dbconfig configuration for each of the passwd, group, hosts and service database.
-
+# @param dbconfig configuration for each of the passwd, group, hosts and service database.
+#
 class nscd (
   Nscd::Database                    $dbconfig,
   Enum['present','absent','latest'] $pkg_ensure       = 'present',

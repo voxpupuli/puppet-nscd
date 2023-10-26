@@ -1,3 +1,4 @@
+# @summary hash of configuration in nscd.conf
 type Nscd::Database = Struct[
   {
     Optional['passwd']   => Nscd::Database::Settings,

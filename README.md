@@ -113,7 +113,7 @@ nscd::dbconfig:
 ## Usage
 
 Generated puppet strings documentation with examples is available from
-https://voxpupuli.org/puppet-nscd/
+[REFERENCE.md](REFERENCE.md)
 
 ## Authors
 
