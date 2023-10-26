@@ -1,12 +1,13 @@
 # Puppet module for nscd
 
-[![Build Status](https://travis-ci.org/voxpupuli/puppet-nscd.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-nscd)
-[![Code Coverage](https://coveralls.io/repos/github/voxpupuli/puppet-nscd/badge.svg?branch=master)](https://coveralls.io/github/voxpupuli/puppet-nscd)
+[![Build Status](https://github.com/voxpupuli/puppet-nscd/workflows/CI/badge.svg)](https://github.com/voxpupuli/puppet-nscd/actions?query=workflow%3ACI)
+[![Release](https://github.com/voxpupuli/puppet-nscd/actions/workflows/release.yml/badge.svg)](https://github.com/voxpupuli/puppet-nscd/actions/workflows/release.yml)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/nscd.svg)](https://forge.puppetlabs.com/puppet/nscd)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/nscd.svg)](https://forge.puppetlabs.com/puppet/nscd)
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/nscd.svg)](https://forge.puppetlabs.com/puppet/nscd)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/nscd.svg)](https://forge.puppetlabs.com/puppet/nscd)
-
+[![puppetmodule.info docs](https://www.puppetmodule.info/images/badge.png)](https://www.puppetmodule.info/m/puppet-nscd)
+[![Apache-2.0 License](https://img.shields.io/github/license/voxpupuli/puppet-nscd.svg)](LICENSE)
 
 ## Overview
 
