@@ -37,7 +37,7 @@ stat-user  <%= $nscd::stat_user %>
 debug-level   <%= $nscd::debug_level %>
 reload-count   <%= $nscd::reload_count %>
 <%- if $nscd::restart_interval { -%>
-restart-interval   <%= $::nscd::restart_interval %>
+restart-interval   <%= $nscd::restart_interval %>
 <%- } -%>
 <%- if $nscd::paranoia { -%>
 paranoia   yes
