@@ -17,7 +17,7 @@ Configures `/etc/nscd.conf` and controls nscd service.
 
 Including the class should configure nscd with default OS configuration.
 ```puppet
-include ::nscd
+include nscd
 ```
 
 A full set of configurations that can be set.
