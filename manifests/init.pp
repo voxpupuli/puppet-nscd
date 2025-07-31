@@ -20,6 +20,7 @@
 # @param pkg_ensure state of nscd package.
 # @param service_ensure state of nscd service ensure
 # @param service_enable state of nscd service enable
+# $param service_restart command to reload nscd service
 # @param threads number of threads.
 # @param max_threads maximum number of threads.
 # @param paranoia  enable internal restart mode.
@@ -36,6 +37,7 @@ class nscd (
   Enum['present','absent','latest'] $pkg_ensure       = 'present',
   Boolean                           $service_ensure   = true,
   Boolean                           $service_enable   = true,
+  String[1]                         $service_restart  = '/bin/systemctl reload nscd',
   String[1]                         $user             = 'root',
   Optional[String[1]]               $stat_user     = undef,
   Integer                           $threads          = 5,
