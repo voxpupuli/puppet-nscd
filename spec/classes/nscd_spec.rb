@@ -141,18 +141,18 @@ describe 'nscd' do
             dbconfig: {
               passwd: { 'enable-cache' => true,
                         'negative-time-to-live' => 1002,
-                        'positive-time-to-live' => 1003 },
+                        'positive-time-to-live' => 1003, },
               group: { 'enable-cache' => true,
                        'negative-time-to-live' => 1004,
-                       'positive-time-to-live' => 1005 },
+                       'positive-time-to-live' => 1005, },
               hosts: { 'enable-cache' => true,
                        'negative-time-to-live' => 1006,
-                       'positive-time-to-live' => 1007 },
+                       'positive-time-to-live' => 1007, },
               services: { 'enable-cache' => true,
                           'negative-time-to-live' => 1008,
-                          'positive-time-to-live' => 1009 }
+                          'positive-time-to-live' => 1009, },
 
-            }
+            },
           }
         end
 
