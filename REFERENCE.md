@@ -167,6 +167,8 @@ Data type: `Nscd::Database`
 
 configuration for each of the passwd, group, hosts and service database.
 
+Default value: `{ 'passwd' => { 'enable-cache' => true, 'positive-time-to-live' => 600, 'negative-time-to-live' => 20, 'suggested-size' => 211, 'check-files' => true, 'persistent' => true, 'shared' => true, 'max-db-size' => 33554432, 'auto-propagate' => true }, 'group' => { 'enable-cache' => true, 'positive-time-to-live' => 3600, 'negative-time-to-live' => 60, 'suggested-size' => 211, 'check-files' => true, 'persistent' => true, 'shared' => true, 'max-db-size' => 33554432, 'auto-propagate' => true }, 'hosts' => { 'enable-cache' => true, 'positive-time-to-live' => 3600, 'negative-time-to-live' => 20, 'suggested-size' => 211, 'check-files' => true, 'persistent' => true, 'shared' => true, 'max-db-size' => 33554432 }, 'services' => { 'enable-cache' => true, 'positive-time-to-live' => 28800, 'negative-time-to-live' => 20, 'suggested-size' => 211, 'check-files' => true, 'persistent' => true, 'shared' => true, 'max-db-size' => 33554432 }, 'netgroup' => { 'enable-cache' => false } }`
+
 ### <a name="nscd--config"></a>`nscd::config`
 
 == Class nscd::config
