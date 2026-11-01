@@ -32,7 +32,7 @@ must be specified.
 
 #### Examples
 
-##### 
+#####
 
 ```puppet
 class{'nscd':
@@ -211,4 +211,3 @@ Struct[{
     Optional['auto-propagate']        => Boolean,
   }]
 ```
-
